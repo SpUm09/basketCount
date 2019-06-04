@@ -2,8 +2,8 @@ $(document).ready(function () {
 
     let basket = [];
 
-    if (JSON.parse(localStorage.getItem('basketProd')) !== null) {
-        basket = JSON.parse(localStorage.getItem('basketProd'));
+    if (JSON.parse(localStorage.getItem('basketProdCount')) !== null) {
+        basket = JSON.parse(localStorage.getItem('basketProdCount'));
         updateBasket();
     }
 
@@ -52,7 +52,7 @@ $(document).ready(function () {
                 basket[i].count = basket[i].count + 1;
                 productCount = basket[i].count;
                 $('.basket_shop-list-item .name:contains(' + productName + ')').siblings('.counter').text(basket[i].count);
-                localStorage.setItem('basketProd', JSON.stringify(basket));
+                localStorage.setItem('basketProdCount', JSON.stringify(basket));
                 updatePrice();
                 return false;
             }
@@ -74,7 +74,7 @@ $(document).ready(function () {
             count: productCount
         });
 
-        localStorage.setItem('basketProd', JSON.stringify(basket));
+        localStorage.setItem('basketProdCount', JSON.stringify(basket));
 
         updatePrice();
     });
@@ -106,7 +106,7 @@ $(document).ready(function () {
                     });
                 }
 
-                localStorage.setItem('basketProd', JSON.stringify(basket));
+                localStorage.setItem('basketProdCount', JSON.stringify(basket));
                 updatePrice();
             }
         }
